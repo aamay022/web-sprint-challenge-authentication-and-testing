@@ -2,21 +2,21 @@ const request = require('supertest')
 const server = require('./server')
 const db = require('../data/dbConfig')
 
-// beforeAll(async () => {
-//   await db.migrate.rollback()
-//   await db.migrate.latest()
-// })
-// beforeEach(async () => {
-//   await db.seed.run()
-// })
-// afterAll(async () => {
-//   await db.destroy() 
-// })
+beforeAll(async ()=>{
+  await db.migrate.rollback()
+  await db.migrate.latest()
+})
+beforeEach(async ()=>{
+  await db.seed.run()
+})
+afterAll(async ()=>{
+  await db.destroy() 
+})
 
 // Write your tests here
-// test('sanity', () => {
-//   expect(true).toBe(true)
-// })
+test('sanity', () => {
+  expect(true).toBe(true)
+})
 
 describe('jokes router', () => {
   describe('[GET] /jokes', () => {
